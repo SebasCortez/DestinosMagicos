@@ -193,7 +193,7 @@ const translations = {
     "footer.quickLinks": "Enlaces Rápidos", "footer.about": "Sobre Nosotros",
     "footer.info": "Información", "footer.terms": "Términos y Condiciones",
     "footer.privacy": "Política de Privacidad", "footer.faq": "Preguntas Frecuentes",
-    "footer.hours": "Horario de Atención", "footer.weekdays": "Lunes - Viernes: 8:00 AM - 8:00 PM",
+    "footer.hours": "Horario de Atención", "footer.weekdays": "Lunes - Domingo: 7:00 am - 11:00 pm",
     "footer.saturday": "Sábados: 9:00 AM - 6:00 PM", "footer.sunday": "Domingos: 10:00 AM - 4:00 PM",
     "footer.payment": "Métodos de pago aceptados",
     "footer.rights": "© 2026 Destinos Mágicos. Todos los derechos reservados.",
@@ -756,7 +756,7 @@ function openPackageDetailModal(packageId) {
         <button class="btn btn-primary btn-block" onclick="addToCartFromModal('${t.ID}')" style="flex:1;">
           <i class="fas fa-cart-plus"></i> Agregar al Carrito
         </button>
-        <a href="https://wa.me/51970654447?text=${encodeURIComponent('Hola! Me interesa el tour: ' + t.Titulo + ' ($' + t.PrecioDesde + ' por persona). ¿Tienen disponibilidad?')}" target="_blank" class="btn btn-primary btn-block" style="flex:1;background:var(--success,#25D366);">
+        <a href="https://wa.me/51984556834?text=${encodeURIComponent('Hola! Me interesa el tour: ' + t.Titulo + ' ($' + t.PrecioDesde + ' por persona). ¿Tienen disponibilidad?')}" target="_blank" class="btn btn-primary btn-block" style="flex:1;background:var(--success,#25D366);">
           <i class="fab fa-whatsapp"></i> Consultar
         </a>
       </div>
@@ -840,7 +840,7 @@ function sendWhatsApp() {
   if (notes) msg += `\n📝 Notas: ${notes}`;
   msg += `\n\n¡Quedo en espera de su confirmación! 🙏`;
 
-  window.open('https://wa.me/51970654447?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/51984556834?text=' + encodeURIComponent(msg), '_blank');
 
   // Limpiar carrito tras envío
   cart = [];
