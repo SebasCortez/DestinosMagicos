@@ -509,8 +509,8 @@ function applyFilters() {
     cards.forEach(c => {
       const d = (c.dataset.duration || '').toLowerCase();
       const ok = (dur === 'halfday' && d === 'halfday') ||
-                 (dur === 'fullday' && d === 'fullday') ||
-                 (dur === 'multiday' && d === 'multiday');
+        (dur === 'fullday' && d === 'fullday') ||
+        (dur === 'multiday' && d === 'multiday');
       if (!ok) c.style.display = 'none';
     });
   }
@@ -654,11 +654,11 @@ function updateCartUI() {
 }
 
 function saveCart() {
-  try { localStorage.setItem('allpamagic_cart', JSON.stringify(cart)); } catch (e) {}
+  try { localStorage.setItem('allpamagic_cart', JSON.stringify(cart)); } catch (e) { }
 }
 
 function loadCart() {
-  try { const s = localStorage.getItem('allpamagic_cart'); if (s) { cart = JSON.parse(s); updateCartUI(); } } catch (e) {}
+  try { const s = localStorage.getItem('allpamagic_cart'); if (s) { cart = JSON.parse(s); updateCartUI(); } } catch (e) { }
 }
 
 /* ══════════════════════════════════════════════════════
@@ -840,7 +840,14 @@ function sendWhatsApp() {
   if (notes) msg += `\n📝 Notas: ${notes}`;
   msg += `\n\n¡Quedo en espera de su confirmación! 🙏`;
 
-  window.open('https://wa.me/51984556834?text=' + encodeURIComponent(msg), '_blank');
+  const url = 'https://wa.me/51984556834?text=' + encodeURIComponent(msg);
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 
   // Limpiar carrito tras envío
   cart = [];
